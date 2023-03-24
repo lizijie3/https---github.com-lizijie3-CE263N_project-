@@ -1,0 +1,32 @@
+version: '3'
+services:
+  chatbot_parser:
+    build: ./chatbot_parser
+    container_name: "Parser"
+    ports:
+      - "5000:5000"
+  shrug_command:
+    build: ./shrug_command
+    container_name: "shrug_command"
+    ports:
+      - "5051:5051"
+  db:
+      image: postgres:latest
+      container_name: "postgres_container"
+      environment:
+        POSTGRES_USERNAME: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: chatbot
+      volumes: 
+        - ./init.db.sql:/docker-entrypoint-initdb.d/init.db.sql
+      ports:
+      - 5432:5432
+  email_command:
+    build: ./email_command
+    container_name: "email_command"
+    ports:
+      - "5052:5052"
+    environment:
+      SENDGRID_API_KEY: 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
+
+
