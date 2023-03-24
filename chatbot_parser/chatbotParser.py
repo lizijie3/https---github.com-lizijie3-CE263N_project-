@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
 
 app = Flask(__name__)
-
+#456
 # python D:\INFO253B\terminal-chat-docker\terminal_chatbot.py http://127.0.0.1:5000
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:postgres@db:5432/chatbot"
