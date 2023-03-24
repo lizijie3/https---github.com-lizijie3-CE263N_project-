@@ -4,7 +4,7 @@ from flask import Flask, request, Response, jsonify
 import json
 
 app = Flask(__name__)
-11  1111
+11  
 @app.route("/command", methods=['POST'])
 def command():
     raw_data = request.get_json()
